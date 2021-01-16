@@ -12,6 +12,7 @@
 #include <touchgfx/widgets/graph/GraphElements.hpp>
 #include <touchgfx/widgets/canvas/PainterRGB565.hpp>
 #include <touchgfx/widgets/graph/GraphLabels.hpp>
+#include <touchgfx/widgets/Button.hpp>
 
 class Screen1ViewBase : public touchgfx::View<Screen1Presenter>
 {
@@ -35,6 +36,9 @@ protected:
     touchgfx::GraphElementGridX mojGrafMajorXAxisGrid;
     touchgfx::GraphElementGridY mojGrafMajorYAxisGrid;
     touchgfx::GraphLabelsX mojGrafMajorXAxisLabel;
+    touchgfx::GraphLabelsY mojGrafMajorYAxisLabel;
+    touchgfx::Button x_button;
+    touchgfx::Button y_button;
 
 private:
 

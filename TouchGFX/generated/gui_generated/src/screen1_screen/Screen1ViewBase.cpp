@@ -4,6 +4,7 @@
 #include <gui_generated/screen1_screen/Screen1ViewBase.hpp>
 #include <touchgfx/Color.hpp>
 #include <texts/TextKeysAndLanguages.hpp>
+#include "BitmapDatabase.hpp"
 
 Screen1ViewBase::Screen1ViewBase()
 {
@@ -14,9 +15,9 @@ Screen1ViewBase::Screen1ViewBase()
     __background.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
 
     mojGraf.setScale(1);
-    mojGraf.setPosition(0, 0, 320, 240);
-    mojGraf.setGraphAreaMargin(0, 0, 0, 20);
-    mojGraf.setGraphAreaPadding(10, 0, 0, 0);
+    mojGraf.setPosition(0, 0, 320, 180);
+    mojGraf.setGraphAreaMargin(0, 20, 0, 20);
+    mojGraf.setGraphAreaPadding(10, 5, 5, 0);
     mojGraf.setGraphRangeY(0, 100);
 
     mojGrafMajorXAxisGrid.setScale(1);
@@ -37,14 +38,28 @@ Screen1ViewBase::Screen1ViewBase()
     mojGrafMajorXAxisLabel.setColor(touchgfx::Color::getColorFrom24BitRGB(20, 151, 197));
     mojGraf.addBottomElement(mojGrafMajorXAxisLabel);
 
+    mojGrafMajorYAxisLabel.setScale(1);
+    mojGrafMajorYAxisLabel.setInterval(10);
+    mojGrafMajorYAxisLabel.setLabelTypedText(touchgfx::TypedText(T_SINGLEUSEID4));
+    mojGrafMajorYAxisLabel.setColor(touchgfx::Color::getColorFrom24BitRGB(20, 151, 197));
+    mojGraf.addLeftElement(mojGrafMajorYAxisLabel);
+
     mojGrafLine1.setScale(1);
     mojGrafLine1Painter.setColor(touchgfx::Color::getColorFrom24BitRGB(20, 151, 197));
     mojGrafLine1.setPainter(mojGrafLine1Painter);
     mojGrafLine1.setLineWidth(2);
     mojGraf.addGraphElement(mojGrafLine1);
 
+    x_button.setXY(0, 180);
+    x_button.setBitmaps(touchgfx::Bitmap(BITMAP_BLUE_BUTTONS_ROUND_EDGE_ICON_BUTTON_ID), touchgfx::Bitmap(BITMAP_BLUE_BUTTONS_ROUND_EDGE_ICON_BUTTON_PRESSED_ID));
+
+    y_button.setXY(60, 180);
+    y_button.setBitmaps(touchgfx::Bitmap(BITMAP_BLUE_BUTTONS_ROUND_EDGE_ICON_BUTTON_ID), touchgfx::Bitmap(BITMAP_BLUE_BUTTONS_ROUND_EDGE_ICON_BUTTON_PRESSED_ID));
+
     add(__background);
     add(mojGraf);
+    add(x_button);
+    add(y_button);
 }
 
 void Screen1ViewBase::setupScreen()

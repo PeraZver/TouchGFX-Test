@@ -20,12 +20,12 @@
             "Alpha": 255,
             "LabelSizeTop": 0,
             "LabelSizeBottom": 20,
-            "LabelSizeLeft": 0,
+            "LabelSizeLeft": 20,
             "LabelSizeRight": 0,
             "PaddingTop": 10,
             "PaddingBottom": 0,
-            "PaddingLeft": 0,
-            "PaddingRight": 0,
+            "PaddingLeft": 5,
+            "PaddingRight": 5,
             "GraphType": "GraphWrapClear",
             "GraphDrawers": [
               {
@@ -77,11 +77,60 @@
               "TextRotation": "0",
               "Position": "Bottom"
             },
+            "YAxisLabel": {
+              "Type": "GraphLabel",
+              "Interval": 10.0,
+              "NumberOfDecimals": 0,
+              "DecimalSeparator": "Point",
+              "TextColor": {
+                "Red": 20,
+                "Green": 151,
+                "Blue": 197
+              },
+              "TextId": "SingleUseId4",
+              "Alpha": 255,
+              "TextRotation": "0",
+              "Position": "Left"
+            },
             "Name": "mojGraf",
             "X": 0,
             "Y": 0,
             "Width": 320,
-            "Height": 240,
+            "Height": 180,
+            "Visible": true,
+            "LockPosition": false,
+            "Draggable": false,
+            "Clickable": false,
+            "Fadeable": false,
+            "Moveable": false
+          },
+          {
+            "Type": "Button",
+            "Pressed": "__designer\\Blue_Buttons_Round_Edge_icon_button_pressed.png",
+            "Released": "__designer\\Blue_Buttons_Round_Edge_icon_button.png",
+            "Alpha": 255,
+            "Name": "x_button",
+            "X": 0,
+            "Y": 180,
+            "Width": 60,
+            "Height": 60,
+            "Visible": true,
+            "LockPosition": false,
+            "Draggable": false,
+            "Clickable": false,
+            "Fadeable": false,
+            "Moveable": false
+          },
+          {
+            "Type": "Button",
+            "Pressed": "__designer\\Blue_Buttons_Round_Edge_icon_button_pressed.png",
+            "Released": "__designer\\Blue_Buttons_Round_Edge_icon_button.png",
+            "Alpha": 255,
+            "Name": "y_button",
+            "X": 60,
+            "Y": 180,
+            "Width": 60,
+            "Height": 60,
             "Visible": true,
             "LockPosition": false,
             "Draggable": false,
@@ -100,6 +149,10 @@
     "TextEntries": [
       {
         "TextEntryId": "SingleUseId3",
+        "IsResource": false
+      },
+      {
+        "TextEntryId": "SingleUseId4",
         "IsResource": false
       }
     ],
