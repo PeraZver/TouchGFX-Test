@@ -1,5 +1,7 @@
 #include <gui/screen1_screen/Screen1View.hpp>
 
+extern int adc_data;
+
 Screen1View::Screen1View()
 {
 
@@ -24,6 +26,6 @@ void Screen1View::handleTickEvent()
     if (tickCounter % 2 == 0)
     {
       // Insert data point
-      mojGraf.addDataPoint((float)20.5); /* Your data point here, either float or integer */
+      mojGraf.addDataPoint((float)adc_data/4096*100); /* Your data point here, either float or integer */
     }
 }

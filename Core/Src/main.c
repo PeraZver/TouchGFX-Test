@@ -55,7 +55,7 @@ TIM_HandleTypeDef htim2;
 UART_HandleTypeDef huart2;
 
 /* USER CODE BEGIN PV */
-volatile uint32_t adc_data = 0;
+volatile int adc_data = 0;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
