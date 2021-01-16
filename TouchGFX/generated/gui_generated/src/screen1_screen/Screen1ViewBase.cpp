@@ -3,76 +3,51 @@
 /*********************************************************************************/
 #include <gui_generated/screen1_screen/Screen1ViewBase.hpp>
 #include <touchgfx/Color.hpp>
-#include "BitmapDatabase.hpp"
 #include <texts/TextKeysAndLanguages.hpp>
 
-Screen1ViewBase::Screen1ViewBase() :
-    buttonCallback(this, &Screen1ViewBase::buttonCallbackHandler)
+Screen1ViewBase::Screen1ViewBase()
 {
 
-    __background.setPosition(0, 0, 240, 320);
+    touchgfx::CanvasWidgetRenderer::setupBuffer(canvasBuffer, CANVAS_BUFFER_SIZE);
+
+    __background.setPosition(0, 0, 320, 240);
     __background.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
 
-    box1.setPosition(0, 0, 240, 320);
-    box1.setColor(touchgfx::Color::getColorFrom24BitRGB(22, 54, 87));
+    mojGraf.setScale(1);
+    mojGraf.setPosition(0, 0, 320, 240);
+    mojGraf.setGraphAreaMargin(0, 0, 0, 20);
+    mojGraf.setGraphAreaPadding(10, 0, 0, 0);
+    mojGraf.setGraphRangeY(0, 100);
 
-    button1.setXY(9, 6);
-    button1.setBitmaps(touchgfx::Bitmap(BITMAP_BLUE_BUTTONS_SQUARE_ICON_BUTTON_ID), touchgfx::Bitmap(BITMAP_BLUE_BUTTONS_SQUARE_ICON_BUTTON_PRESSED_ID));
-    button1.setAction(buttonCallback);
+    mojGrafMajorXAxisGrid.setScale(1);
+    mojGrafMajorXAxisGrid.setColor(touchgfx::Color::getColorFrom24BitRGB(255, 255, 255));
+    mojGrafMajorXAxisGrid.setInterval(28);
+    mojGrafMajorXAxisGrid.setLineWidth(1);
+    mojGraf.addGraphElement(mojGrafMajorXAxisGrid);
 
-    button2.setXY(171, 6);
-    button2.setBitmaps(touchgfx::Bitmap(BITMAP_BLUE_BUTTONS_SQUARE_ICON_BUTTON_ID), touchgfx::Bitmap(BITMAP_BLUE_BUTTONS_SQUARE_ICON_BUTTON_PRESSED_ID));
-    button2.setAction(buttonCallback);
+    mojGrafMajorYAxisGrid.setScale(1);
+    mojGrafMajorYAxisGrid.setColor(touchgfx::Color::getColorFrom24BitRGB(255, 255, 255));
+    mojGrafMajorYAxisGrid.setInterval(10);
+    mojGrafMajorYAxisGrid.setLineWidth(1);
+    mojGraf.addGraphElement(mojGrafMajorYAxisGrid);
 
-    counterBox.setPosition(69, 160, 102, 100);
-    counterBox.setColor(touchgfx::Color::getColorFrom24BitRGB(39, 105, 161));
+    mojGrafMajorXAxisLabel.setScale(1);
+    mojGrafMajorXAxisLabel.setInterval(28);
+    mojGrafMajorXAxisLabel.setLabelTypedText(touchgfx::TypedText(T_SINGLEUSEID3));
+    mojGrafMajorXAxisLabel.setColor(touchgfx::Color::getColorFrom24BitRGB(20, 151, 197));
+    mojGraf.addBottomElement(mojGrafMajorXAxisLabel);
 
-    textCounter.setPosition(69, 185, 102, 48);
-    textCounter.setColor(touchgfx::Color::getColorFrom24BitRGB(255, 255, 255));
-    textCounter.setLinespacing(0);
-    Unicode::snprintf(textCounterBuffer, TEXTCOUNTER_SIZE, "%s", touchgfx::TypedText(T_SINGLEUSEID3).getText());
-    textCounter.setWildcard(textCounterBuffer);
-    textCounter.setTypedText(touchgfx::TypedText(T_SINGLEUSEID2));
-
-    upIcon.setXY(26, 66);
-    upIcon.setColor(touchgfx::Color::getColorFrom24BitRGB(255, 255, 255));
-    upIcon.setLinespacing(0);
-    upIcon.setTypedText(touchgfx::TypedText(T_SINGLEUSEID4));
-
-    downIcon.setXY(171, 66);
-    downIcon.setColor(touchgfx::Color::getColorFrom24BitRGB(255, 255, 255));
-    downIcon.setLinespacing(0);
-    downIcon.setTypedText(touchgfx::TypedText(T_SINGLEUSEID5));
+    mojGrafLine1.setScale(1);
+    mojGrafLine1Painter.setColor(touchgfx::Color::getColorFrom24BitRGB(20, 151, 197));
+    mojGrafLine1.setPainter(mojGrafLine1Painter);
+    mojGrafLine1.setLineWidth(2);
+    mojGraf.addGraphElement(mojGrafLine1);
 
     add(__background);
-    add(box1);
-    add(button1);
-    add(button2);
-    add(counterBox);
-    add(textCounter);
-    add(upIcon);
-    add(downIcon);
+    add(mojGraf);
 }
 
 void Screen1ViewBase::setupScreen()
 {
 
-}
-
-void Screen1ViewBase::buttonCallbackHandler(const touchgfx::AbstractButton& src)
-{
-    if (&src == &button1)
-    {
-        //buttonUpClicked
-        //When button1 clicked call virtual function
-        //Call buttonUpClicked
-        buttonUpClicked();
-    }
-    else if (&src == &button2)
-    {
-        //buttonDownClicked
-        //When button2 clicked call virtual function
-        //Call buttonDownClicked
-        buttonDownClicked();
-    }
 }

@@ -4,151 +4,84 @@
       {
         "Components": [
           {
-            "Type": "Box",
-            "Color": {
-              "Red": 22,
-              "Green": 54,
-              "Blue": 87
-            },
+            "Type": "DynamicGraph",
+            "DataSeed": 109061667,
+            "NumberOfValues": 280,
+            "MaxY": 100.0,
+            "MinY": 0.0,
+            "Precision": "1",
+            "UseCustomVisibleDataPointRange": false,
+            "FirstIndex": 0,
+            "LastIndex": 279,
+            "MapDataPointIndexToCustomValue": false,
+            "XAxisOffset": 0.0,
+            "XAxisScale": 1.0,
+            "InsertRandomValues": false,
             "Alpha": 255,
-            "Name": "box1",
+            "LabelSizeTop": 0,
+            "LabelSizeBottom": 20,
+            "LabelSizeLeft": 0,
+            "LabelSizeRight": 0,
+            "PaddingTop": 10,
+            "PaddingBottom": 0,
+            "PaddingLeft": 0,
+            "PaddingRight": 0,
+            "GraphType": "GraphWrapClear",
+            "GraphDrawers": [
+              {
+                "Type": "LineDrawer",
+                "LineWidth": 2,
+                "FileNameImage": "",
+                "Color": {
+                  "Red": 20,
+                  "Green": 151,
+                  "Blue": 197
+                },
+                "Alpha": 255
+              }
+            ],
+            "XAxisGrid": {
+              "Type": "GraphGrid",
+              "Color": {
+                "Red": 255,
+                "Green": 255,
+                "Blue": 255
+              },
+              "Interval": 28.0,
+              "LineWidth": 1,
+              "Alpha": 255
+            },
+            "YAxisGrid": {
+              "Type": "GraphGrid",
+              "Color": {
+                "Red": 255,
+                "Green": 255,
+                "Blue": 255
+              },
+              "Interval": 10.0,
+              "LineWidth": 1,
+              "Alpha": 255
+            },
+            "XAxisLabel": {
+              "Type": "GraphLabel",
+              "Interval": 28.0,
+              "NumberOfDecimals": 0,
+              "DecimalSeparator": "Point",
+              "TextColor": {
+                "Red": 20,
+                "Green": 151,
+                "Blue": 197
+              },
+              "TextId": "SingleUseId3",
+              "Alpha": 255,
+              "TextRotation": "0",
+              "Position": "Bottom"
+            },
+            "Name": "mojGraf",
             "X": 0,
             "Y": 0,
-            "Width": 240,
-            "Height": 320,
-            "Visible": true,
-            "LockPosition": false,
-            "Draggable": false,
-            "Clickable": false,
-            "Fadeable": false,
-            "Moveable": false
-          },
-          {
-            "Type": "Button",
-            "Pressed": "__designer\\Blue_Buttons_Square_icon_button_pressed.png",
-            "Released": "__designer\\Blue_Buttons_Square_icon_button.png",
-            "Alpha": 255,
-            "Style": "Style9",
-            "Name": "button1",
-            "X": 9,
-            "Y": 6,
-            "Width": 60,
-            "Height": 60,
-            "Visible": true,
-            "LockPosition": false,
-            "Draggable": false,
-            "Clickable": false,
-            "Fadeable": false,
-            "Moveable": false
-          },
-          {
-            "Type": "Button",
-            "Pressed": "__designer\\Blue_Buttons_Square_icon_button_pressed.png",
-            "Released": "__designer\\Blue_Buttons_Square_icon_button.png",
-            "Alpha": 255,
-            "Style": "Style9",
-            "Name": "button2",
-            "X": 171,
-            "Y": 6,
-            "Width": 60,
-            "Height": 60,
-            "Visible": true,
-            "LockPosition": false,
-            "Draggable": false,
-            "Clickable": false,
-            "Fadeable": false,
-            "Moveable": false
-          },
-          {
-            "Type": "Box",
-            "Color": {
-              "Red": 39,
-              "Green": 105,
-              "Blue": 161
-            },
-            "Alpha": 255,
-            "Name": "counterBox",
-            "X": 69,
-            "Y": 160,
-            "Width": 102,
-            "Height": 100,
-            "Visible": true,
-            "LockPosition": false,
-            "Draggable": false,
-            "Clickable": false,
-            "Fadeable": false,
-            "Moveable": false
-          },
-          {
-            "Type": "TextArea",
-            "TextId": "SingleUseId2",
-            "TextRotation": "0",
-            "Color": {
-              "Red": 255,
-              "Green": 255,
-              "Blue": 255
-            },
-            "Alpha": 255,
-            "AutoSize": false,
-            "LineSpacing": 0,
-            "Wildcard1": {
-              "TextId": "SingleUseId3",
-              "UseBuffer": true,
-              "BufferSize": 10
-            },
-            "Name": "textCounter",
-            "X": 69,
-            "Y": 185,
-            "Width": 102,
-            "Height": 48,
-            "Visible": true,
-            "LockPosition": false,
-            "Draggable": false,
-            "Clickable": false,
-            "Fadeable": false,
-            "Moveable": false
-          },
-          {
-            "Type": "TextArea",
-            "TextId": "SingleUseId4",
-            "TextRotation": "0",
-            "Color": {
-              "Red": 255,
-              "Green": 255,
-              "Blue": 255
-            },
-            "Alpha": 255,
-            "AutoSize": true,
-            "LineSpacing": 0,
-            "Name": "upIcon",
-            "X": 26,
-            "Y": 66,
-            "Width": 27,
-            "Height": 25,
-            "Visible": true,
-            "LockPosition": false,
-            "Draggable": false,
-            "Clickable": false,
-            "Fadeable": false,
-            "Moveable": false
-          },
-          {
-            "Type": "TextArea",
-            "TextId": "SingleUseId5",
-            "TextRotation": "0",
-            "Color": {
-              "Red": 255,
-              "Green": 255,
-              "Blue": 255
-            },
-            "Alpha": 255,
-            "AutoSize": true,
-            "LineSpacing": 0,
-            "Name": "downIcon",
-            "X": 171,
-            "Y": 66,
-            "Width": 57,
-            "Height": 25,
+            "Width": 320,
+            "Height": 240,
             "Visible": true,
             "LockPosition": false,
             "Draggable": false,
@@ -157,53 +90,16 @@
             "Moveable": false
           }
         ],
-        "Interactions": [
-          {
-            "InteractionName": "buttonUpClicked",
-            "HasCompletedTrigger": false,
-            "Trigger": {
-              "Type": "TriggerClicked",
-              "TriggerComponent": "button1"
-            },
-            "Action": {
-              "Type": "ActionCustom",
-              "FunctionName": "buttonUpClicked"
-            }
-          },
-          {
-            "InteractionName": "buttonDownClicked",
-            "HasCompletedTrigger": false,
-            "Trigger": {
-              "Type": "TriggerClicked",
-              "TriggerComponent": "button2"
-            },
-            "Action": {
-              "Type": "ActionCustom",
-              "FunctionName": "buttonDownClicked"
-            }
-          }
-        ],
+        "Interactions": [],
         "Name": "Screen1",
         "OverrideDefaultBufferSize": false,
-        "CanvasBufferSize": 0
+        "CanvasBufferSize": 4800
       }
     ],
     "CustomContainerDefinitions": [],
     "TextEntries": [
       {
-        "TextEntryId": "SingleUseId2",
-        "IsResource": false
-      },
-      {
         "TextEntryId": "SingleUseId3",
-        "IsResource": false
-      },
-      {
-        "TextEntryId": "SingleUseId4",
-        "IsResource": false
-      },
-      {
-        "TextEntryId": "SingleUseId5",
         "IsResource": false
       }
     ],
@@ -250,7 +146,7 @@
     "LandscapeSkinY": 0,
     "PortraitSkinX": 0,
     "PortraitSkinY": 0,
-    "DisplayOrientation": "Portrait",
+    "DisplayOrientation": "Landscape",
     "Family": "STM32F4"
   },
   "Version": "4.15.0"

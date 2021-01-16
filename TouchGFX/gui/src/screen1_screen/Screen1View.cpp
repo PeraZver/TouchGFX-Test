@@ -3,6 +3,7 @@
 Screen1View::Screen1View()
 {
 
+    tickCounter = 0;
 }
 
 void Screen1View::setupScreen()
@@ -15,20 +16,14 @@ void Screen1View::tearDownScreen()
     Screen1ViewBase::tearDownScreen();
 }
 
-void Screen1View::buttonUpClicked()
+void Screen1View::handleTickEvent()
 {
-  touchgfx_printf("buttonUpClicked\n");
-    counter++;
-  	Unicode::snprintf(textCounterBuffer, TEXTCOUNTER_SIZE, "%d", counter);
-  	// Invalidate text area, which will result in it being redrawn in next tick.
- 	 textCounter.invalidate();
-}
+    tickCounter++;
 
-void Screen1View::buttonDownClicked()
-{
-  	touchgfx_printf("buttonDownClicked\n");
-   	counter--;
-  	Unicode::snprintf(textCounterBuffer, TEXTCOUNTER_SIZE, "%d", counter);
-  	// Invalidate text area, which will result in it being redrawn in next tick.
-  	textCounter.invalidate();
+    // Insert each second tick
+    if (tickCounter % 2 == 0)
+    {
+      // Insert data point
+      mojGraf.addDataPoint((float)20.5); /* Your data point here, either float or integer */
+    }
 }
