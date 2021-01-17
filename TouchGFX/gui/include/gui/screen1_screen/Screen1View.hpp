@@ -14,6 +14,7 @@ public:
 protected:	
     int tickCounter;
     void handleTickEvent();
+    virtual void sliderValueChanged(int value);
 };
 
 #endif // SCREEN1VIEW_HPP

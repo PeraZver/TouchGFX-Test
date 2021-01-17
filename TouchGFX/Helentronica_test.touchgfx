@@ -4,6 +4,23 @@
       {
         "Components": [
           {
+            "Type": "Image",
+            "RelativeFilename": "__designer\\Blue_Backgrounds_Main_bg_320x240px.png",
+            "Alpha": 255,
+            "Style": "Image1",
+            "Name": "background",
+            "X": 0,
+            "Y": 0,
+            "Width": 320,
+            "Height": 240,
+            "Visible": true,
+            "LockPosition": false,
+            "Draggable": false,
+            "Clickable": false,
+            "Fadeable": false,
+            "Moveable": false
+          },
+          {
             "Type": "DynamicGraph",
             "DataSeed": 109061667,
             "NumberOfValues": 280,
@@ -64,7 +81,7 @@
             },
             "XAxisLabel": {
               "Type": "GraphLabel",
-              "Interval": 28.0,
+              "Interval": 56.0,
               "NumberOfDecimals": 0,
               "DecimalSeparator": "Point",
               "TextColor": {
@@ -79,7 +96,7 @@
             },
             "YAxisLabel": {
               "Type": "GraphLabel",
-              "Interval": 10.0,
+              "Interval": 20.0,
               "NumberOfDecimals": 0,
               "DecimalSeparator": "Point",
               "TextColor": {
@@ -95,7 +112,7 @@
             "Name": "mojGraf",
             "X": 0,
             "Y": 0,
-            "Width": 320,
+            "Width": 280,
             "Height": 180,
             "Visible": true,
             "LockPosition": false,
@@ -137,9 +154,49 @@
             "Clickable": false,
             "Fadeable": false,
             "Moveable": false
+          },
+          {
+            "Type": "Slider",
+            "IsHorizontalSlider": false,
+            "BackgroundUnselected": "__designer\\Blue_Slider_Vertical_Small_Slider3_Vertical_Round_back.png",
+            "BackgroundSelected": "__designer\\Blue_Slider_Vertical_Small_Slider3_Vertical_Round_fill.png",
+            "Indicator": "__designer\\Blue_Slider_Vertical_Small_Indicators_Slider3_Vertical_Round_nob.png",
+            "BackgroundX": 7,
+            "BackgroundY": 3,
+            "IndicatorPos": 0,
+            "IndicatorMax": 125,
+            "IndicatorMin": 0,
+            "ValueMax": 110,
+            "ValueMin": 10,
+            "InitValue": 50,
+            "Style": "Style1",
+            "Name": "sliderResolution",
+            "X": 286,
+            "Y": 0,
+            "Width": 34,
+            "Height": 179,
+            "Visible": true,
+            "LockPosition": false,
+            "Draggable": false,
+            "Clickable": false,
+            "Fadeable": false,
+            "Moveable": false
           }
         ],
-        "Interactions": [],
+        "Interactions": [
+          {
+            "InteractionName": "SliderValueChanged",
+            "HasCompletedTrigger": false,
+            "Trigger": {
+              "Type": "TriggerSliderValueChanged",
+              "TriggerComponent": "sliderResolution"
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "sliderValueChanged"
+            }
+          }
+        ],
         "Name": "Screen1",
         "OverrideDefaultBufferSize": false,
         "CanvasBufferSize": 4800

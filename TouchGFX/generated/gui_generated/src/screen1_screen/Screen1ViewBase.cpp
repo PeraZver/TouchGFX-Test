@@ -3,10 +3,11 @@
 /*********************************************************************************/
 #include <gui_generated/screen1_screen/Screen1ViewBase.hpp>
 #include <touchgfx/Color.hpp>
-#include <texts/TextKeysAndLanguages.hpp>
 #include "BitmapDatabase.hpp"
+#include <texts/TextKeysAndLanguages.hpp>
 
-Screen1ViewBase::Screen1ViewBase()
+Screen1ViewBase::Screen1ViewBase() :
+    sliderValueChangedCallback(this, &Screen1ViewBase::sliderValueChangedCallbackHandler)
 {
 
     touchgfx::CanvasWidgetRenderer::setupBuffer(canvasBuffer, CANVAS_BUFFER_SIZE);
@@ -14,8 +15,11 @@ Screen1ViewBase::Screen1ViewBase()
     __background.setPosition(0, 0, 320, 240);
     __background.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
 
+    background.setXY(0, 0);
+    background.setBitmap(touchgfx::Bitmap(BITMAP_BLUE_BACKGROUNDS_MAIN_BG_320X240PX_ID));
+
     mojGraf.setScale(1);
-    mojGraf.setPosition(0, 0, 320, 180);
+    mojGraf.setPosition(0, 0, 280, 180);
     mojGraf.setGraphAreaMargin(0, 20, 0, 20);
     mojGraf.setGraphAreaPadding(10, 5, 5, 0);
     mojGraf.setGraphRangeY(0, 100);
@@ -33,13 +37,13 @@ Screen1ViewBase::Screen1ViewBase()
     mojGraf.addGraphElement(mojGrafMajorYAxisGrid);
 
     mojGrafMajorXAxisLabel.setScale(1);
-    mojGrafMajorXAxisLabel.setInterval(28);
+    mojGrafMajorXAxisLabel.setInterval(56);
     mojGrafMajorXAxisLabel.setLabelTypedText(touchgfx::TypedText(T_SINGLEUSEID3));
     mojGrafMajorXAxisLabel.setColor(touchgfx::Color::getColorFrom24BitRGB(20, 151, 197));
     mojGraf.addBottomElement(mojGrafMajorXAxisLabel);
 
     mojGrafMajorYAxisLabel.setScale(1);
-    mojGrafMajorYAxisLabel.setInterval(10);
+    mojGrafMajorYAxisLabel.setInterval(20);
     mojGrafMajorYAxisLabel.setLabelTypedText(touchgfx::TypedText(T_SINGLEUSEID4));
     mojGrafMajorYAxisLabel.setColor(touchgfx::Color::getColorFrom24BitRGB(20, 151, 197));
     mojGraf.addLeftElement(mojGrafMajorYAxisLabel);
@@ -56,13 +60,33 @@ Screen1ViewBase::Screen1ViewBase()
     y_button.setXY(60, 180);
     y_button.setBitmaps(touchgfx::Bitmap(BITMAP_BLUE_BUTTONS_ROUND_EDGE_ICON_BUTTON_ID), touchgfx::Bitmap(BITMAP_BLUE_BUTTONS_ROUND_EDGE_ICON_BUTTON_PRESSED_ID));
 
+    sliderResolution.setXY(286, 0);
+    sliderResolution.setBitmaps(touchgfx::Bitmap(BITMAP_BLUE_SLIDER_VERTICAL_SMALL_SLIDER3_VERTICAL_ROUND_BACK_ID), touchgfx::Bitmap(BITMAP_BLUE_SLIDER_VERTICAL_SMALL_SLIDER3_VERTICAL_ROUND_FILL_ID), touchgfx::Bitmap(BITMAP_BLUE_SLIDER_VERTICAL_SMALL_INDICATORS_SLIDER3_VERTICAL_ROUND_NOB_ID));
+    sliderResolution.setupVerticalSlider(7, 3, 0, 0, 125);
+    sliderResolution.setValueRange(10, 110);
+    sliderResolution.setValue(50);
+    sliderResolution.setNewValueCallback(sliderValueChangedCallback);
+
     add(__background);
+    add(background);
     add(mojGraf);
     add(x_button);
     add(y_button);
+    add(sliderResolution);
 }
 
 void Screen1ViewBase::setupScreen()
 {
 
+}
+
+void Screen1ViewBase::sliderValueChangedCallbackHandler(const touchgfx::Slider& src, int value)
+{
+    if (&src == &sliderResolution)
+    {
+        //SliderValueChanged
+        //When sliderResolution value changed call virtual function
+        //Call sliderValueChanged
+        sliderValueChanged(value);
+    }
 }

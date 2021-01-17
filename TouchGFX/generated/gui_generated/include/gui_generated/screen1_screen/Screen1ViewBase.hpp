@@ -8,11 +8,13 @@
 #include <mvp/View.hpp>
 #include <gui/screen1_screen/Screen1Presenter.hpp>
 #include <touchgfx/widgets/Box.hpp>
+#include <touchgfx/widgets/Image.hpp>
 #include <touchgfx/widgets/graph/GraphWrapAndClear.hpp>
 #include <touchgfx/widgets/graph/GraphElements.hpp>
 #include <touchgfx/widgets/canvas/PainterRGB565.hpp>
 #include <touchgfx/widgets/graph/GraphLabels.hpp>
 #include <touchgfx/widgets/Button.hpp>
+#include <touchgfx/containers/Slider.hpp>
 
 class Screen1ViewBase : public touchgfx::View<Screen1Presenter>
 {
@@ -20,6 +22,14 @@ public:
     Screen1ViewBase();
     virtual ~Screen1ViewBase() {}
     virtual void setupScreen();
+
+    /*
+     * Virtual Action Handlers
+     */
+    virtual void sliderValueChanged(int value)
+    {
+        // Override and implement this function in Screen1
+    }
 
 protected:
     FrontendApplication& application() {
@@ -30,6 +40,7 @@ protected:
      * Member Declarations
      */
     touchgfx::Box __background;
+    touchgfx::Image background;
     touchgfx::GraphWrapAndClear<280> mojGraf;
     touchgfx::GraphElementLine mojGrafLine1;
     touchgfx::PainterRGB565 mojGrafLine1Painter;
@@ -39,8 +50,19 @@ protected:
     touchgfx::GraphLabelsY mojGrafMajorYAxisLabel;
     touchgfx::Button x_button;
     touchgfx::Button y_button;
+    touchgfx::Slider sliderResolution;
 
 private:
+
+    /*
+     * Callback Declarations
+     */
+    touchgfx::Callback<Screen1ViewBase, const touchgfx::Slider&, int> sliderValueChangedCallback;
+
+    /*
+     * Callback Handler Declarations
+     */
+    void sliderValueChangedCallbackHandler(const touchgfx::Slider& src, int value);
 
     /*
      * Canvas Buffer Size
