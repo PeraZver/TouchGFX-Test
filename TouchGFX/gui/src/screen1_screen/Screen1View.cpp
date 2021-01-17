@@ -26,6 +26,6 @@ void Screen1View::handleTickEvent()
     if (tickCounter % 2 == 0)
     {
       // Insert data point
-      mojGraf.addDataPoint((float)adc_data/4096*100); /* Your data point here, either float or integer */
+      mojGraf.addDataPoint((float)adc_data/10); /* Your data point here, either float or integer */
     }
 }

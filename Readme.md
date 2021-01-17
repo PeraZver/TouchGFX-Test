@@ -30,6 +30,7 @@ This is an educational project, so the purpose is only fun and learning.
 
  - [x] Partial framebuffer 
  - [x] Touchscreen
+ - [ ] Graphs
  - [ ] FreeRTOS 
 
 ## Resources
