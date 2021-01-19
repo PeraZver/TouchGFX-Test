@@ -1,6 +1,7 @@
 #include <gui/screen1_screen/Screen1View.hpp>
+#include <math.h>
 
-extern int adc_data;
+extern uint32_t adc_data[];
 
 Screen1View::Screen1View()
 {
@@ -27,7 +28,9 @@ void Screen1View::handleTickEvent()
     {
       float yMax = mojGraf.getGraphRangeYMaxAsFloat();
       // Insert data point
-      mojGraf.addDataPoint((float)adc_data/4096.0f *yMax); /* Your data point here, either float or integer */
+      for (int i = 0; i < 280; i++)
+    	  mojGraf.addDataPoint((int)(10*(sinf(6.28*i/100) + 1) ) + rand() % (int)(yMax / 10.f));
+      //mojGraf.addDataPoint((float)adc_data[i]/4096.0f *100); /* Your data point here, either float or integer */
       //mojGraf.addDataPoint(1*yMax); /* <-- FOR SIMULATOR ONLY */
     }
 }
