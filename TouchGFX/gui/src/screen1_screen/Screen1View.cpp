@@ -29,8 +29,8 @@ void Screen1View::handleTickEvent()
       float yMax = mojGraf.getGraphRangeYMaxAsFloat(); /* Scaling factor if necessary */
       // Insert data point
       for (int i = 0; i < 280; i++)
-    	  mojGraf.addDataPoint((int)(10*(sinf(6.28*i/100) + 1) ) + rand() % (int)(yMax / 10.f)); /* <-- FOR SIMULATOR ONLY */
-      	  //mojGraf.addDataPoint((float)adc_data[i]/4096.0f *100); /* Your data point here, either float or integer */
+    	  //mojGraf.addDataPoint((int)(10*(sinf(6.28*i/100) + 1) ) + rand() % (int)(yMax / 10.f)); /* <-- FOR SIMULATOR ONLY */
+      	  mojGraf.addDataPoint((float)adc_data[i]/4096.0f *100); /* Your data point here, either float or integer */
     }
 }
 
