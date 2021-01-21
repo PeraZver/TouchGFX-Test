@@ -34,7 +34,7 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-#define ADC_BUFFER_LENGTH 100
+#define ADC_BUFFER_LENGTH 280
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -207,7 +207,7 @@ static void MX_ADC1_Init(void)
   hadc1.Init.ExternalTrigConv = ADC_SOFTWARE_START;
   hadc1.Init.DataAlign = ADC_DATAALIGN_RIGHT;
   hadc1.Init.NbrOfConversion = 1;
-  hadc1.Init.DMAContinuousRequests = DISABLE;
+  hadc1.Init.DMAContinuousRequests = ENABLE;
   hadc1.Init.EOCSelection = ADC_EOC_SEQ_CONV;
   if (HAL_ADC_Init(&hadc1) != HAL_OK)
   {
@@ -223,7 +223,7 @@ static void MX_ADC1_Init(void)
     Error_Handler();
   }
   /* USER CODE BEGIN ADC1_Init 2 */
-  //HAL_ADC_Start_DMA(&hadc1, adc_data, ADC_BUFFER_LENGTH);
+  HAL_ADC_Start_DMA(&hadc1, adc_data, ADC_BUFFER_LENGTH);
   /* USER CODE END ADC1_Init 2 */
 
 }
@@ -495,8 +495,9 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 
 /* ADC interrupt routine */
 void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc){
+	HAL_ADC_Stop_DMA(hadc);
 	noMeasurements++;
-	//HAL_ADC_Start_DMA(&hadc1, adc_data, ADC_BUFFER_LENGTH);
+	HAL_ADC_Start_DMA(hadc, adc_data, ADC_BUFFER_LENGTH);
 }
 /* USER CODE END 4 */
 
