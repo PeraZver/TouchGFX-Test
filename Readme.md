@@ -30,12 +30,12 @@ This is an educational project, so the purpose is only fun and learning.
 
  - [x] Partial framebuffer 
  - [x] Touchscreen
- - [ ] Graphs
+ - [x] Graphs
  - [ ] FreeRTOS 
 
 ## Resources
 
  - [Official documentation](https://support.touchgfx.com/docs/introduction/welcome)
- - [Blog post](https://helentronica.com)
+ - [Blog post](https://helentronica.com/2021/01/22/touchgfx-on-a-custom-made-low-cost-board-with-the-ili9341-controller-over-spi/)
 
  Pero, 2021
